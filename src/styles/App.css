@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.App {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.addTask {
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 1%;
+  right: 20%;
+}
+
+.header {
+  font-weight: bold;
+  font-family:'Roboto', sans-serif;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.newTask {
+  width: 500px;
+  height: 400px;
+  background-color: #ddd;
+  border: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.newTask-btn {
+  padding: 0 0 20px 0;
+}
+
+.newTask-TextField {
+  width: 80%;
+  margin: 0 auto;
+  padding:20px 0 0 0;
+  
+}
+
+.newTask-urgent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 0;
+}
+
+.task {
+  display: grid;
+  grid-template: auto / 1fr 5fr 2fr 2fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 20px 0;
+}
+
+.taskContainer {
+  margin: 30px 0 0 0;
+}
+
+.taskLabel {
+  display: grid;
+  grid-template: auto / 1fr 5fr 2fr 2fr;
+  padding: 0 0 20px;
+}
+
+.task-textField {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.task-switch {
+  justify-content: center;
+}
+
+.task-status {
+  width: 90%;
+  margin: 0 auto;
+
+}
