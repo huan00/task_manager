@@ -10,7 +10,6 @@ const Index = () => {
   const [tasks, setTasks] = useState([
     { urgent: 'on', task: 'select status to complete', status: 'incomplete' }
   ])
-
   const addTask = () => {
     setAddTaskModal((addTaskModal) => !addTaskModal)
   }
