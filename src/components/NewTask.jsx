@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 const NewTask = ({ modal, addTask, storeTask }) => {
   const [newTask, setNewTask] = useState({
-    urgent: 'off',
+    urgent: false,
     task: '',
     status: 'incomplete'
   })
@@ -15,7 +15,7 @@ const NewTask = ({ modal, addTask, storeTask }) => {
     }
     storeTask(data)
     setNewTask({
-      urgent: 'off',
+      urgent: false,
       task: '',
       status: 'incomplete'
     })
@@ -49,7 +49,10 @@ const NewTask = ({ modal, addTask, storeTask }) => {
           <p>Urgent</p>
           <Switch
             onChange={(e) =>
-              setNewTask((newTask) => ({ ...newTask, urgent: e.target.value }))
+              setNewTask((newTask) => ({
+                ...newTask,
+                urgent: e.target.checked
+              }))
             }
           />
         </div>

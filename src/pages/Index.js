@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useId } from 'react'
 import '../styles/App.css'
 import { Typography, Fab } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
@@ -6,10 +6,19 @@ import Tasks from '../components/Tasks'
 import NewTask from '../components/NewTask'
 
 const Index = () => {
+  const id = useId()
   const [addTaskModal, setAddTaskModal] = useState(false)
   const [tasks, setTasks] = useState([
-    { urgent: 'on', task: 'select status to complete', status: 'incomplete' }
+    { urgent: false, task: 'select status to complete', status: 'incomplete' },
+    { urgent: true, task: '2nd status to complete', status: 'incomplete' },
+    { urgent: false, task: '3rd status to complete', status: 'incomplete' },
+    { urgent: true, task: '4nd status to complete', status: 'incomplete' }
   ])
+
+  // useEffect(() => {}, [tasks])
+
+  console.log(tasks)
+
   const addTask = () => {
     setAddTaskModal((addTaskModal) => !addTaskModal)
   }
@@ -67,10 +76,10 @@ const Index = () => {
           </Typography>
         </div>
         {tasks
-          .sort((taskA, taskB) => taskA.status > taskB.status)
+          .sort((a, b) => b.urgent - a.urgent)
           .map((task, idx) => (
             <Tasks
-              key={idx}
+              key={Math.random()}
               urgent={task.urgent}
               task={task.task}
               status={task.status}

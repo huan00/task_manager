@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Index />} />
+        <Route path="/" element={<Index />} />
       </Routes>
     </div>
   )

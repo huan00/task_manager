@@ -15,7 +15,6 @@ const Tasks = ({
   handleDelete
 }) => {
   const statusBg = ['yellow', 'green', 'red']
-  const [switchStatus, setSwitchStatus] = useState(urgent)
   const [textValue, setTextValue] = useState(task)
 
   const activeStatusBg = (status) => {
@@ -29,11 +28,6 @@ const Tasks = ({
     }
   }
 
-  const handleSwitch = () => {
-    switchStatus === 'off' ? setSwitchStatus('on') : setSwitchStatus('off')
-    handleUrgent(idx, switchStatus)
-  }
-
   const handleText = (e) => {
     setTextValue(e.target.value)
     handleTask(idx, textValue)
@@ -43,8 +37,8 @@ const Tasks = ({
     <div className="task">
       <Box className="task-switch">
         <Switch
-          checked={switchStatus === 'off' ? false : true}
-          onClick={handleSwitch}
+          checked={urgent}
+          onClick={(e) => handleUrgent(idx, e.target.checked)}
         />
       </Box>
       <Box className="task-textField">
