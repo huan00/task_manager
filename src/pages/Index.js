@@ -9,10 +9,7 @@ const Index = () => {
   const id = useId()
   const [addTaskModal, setAddTaskModal] = useState(false)
   const [tasks, setTasks] = useState([
-    { urgent: false, task: 'select status to complete', status: 'incomplete' },
-    { urgent: true, task: '2nd status to complete', status: 'incomplete' },
-    { urgent: false, task: '3rd status to complete', status: 'incomplete' },
-    { urgent: true, task: '4nd status to complete', status: 'incomplete' }
+    { urgent: false, task: 'select status to complete', status: 'incomplete' }
   ])
 
   // useEffect(() => {}, [tasks])
