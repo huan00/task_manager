@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useDeferredValue } from 'react'
 import { Switch, TextField, Box, Button } from '@mui/material'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -15,8 +15,8 @@ const Tasks = ({
   handleDelete
 }) => {
   const statusBg = ['yellow', 'green', 'red']
-  const [textValue, setTextValue] = useState(task)
 
+  const [textValue, setTextValue] = useState(task)
   const activeStatusBg = (status) => {
     switch (status) {
       case 'in-progress':
@@ -28,11 +28,6 @@ const Tasks = ({
     }
   }
 
-  const handleText = (e) => {
-    setTextValue(e.target.value)
-    handleTask(idx, textValue)
-  }
-
   return (
     <div className="task">
       <Box className="task-switch">
@@ -42,7 +37,15 @@ const Tasks = ({
         />
       </Box>
       <Box className="task-textField">
-        <TextField fullWidth value={textValue} onChange={handleText} />
+        <TextField
+          fullWidth
+          id="outlined-name"
+          label="Task"
+          variant="standard"
+          value={textValue}
+          onChange={(e) => setTextValue(e.target.value)}
+          onBlur={() => handleTask(idx, textValue)}
+        />
       </Box>
       <Box className="task-status">
         <FormControl fullWidth>

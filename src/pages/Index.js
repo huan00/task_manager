@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useId } from 'react'
+import React, { useState } from 'react'
 import '../styles/App.css'
 import { Typography, Fab } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
@@ -6,16 +6,11 @@ import Tasks from '../components/Tasks'
 import NewTask from '../components/NewTask'
 
 const Index = () => {
-  const id = useId()
   const [addTaskModal, setAddTaskModal] = useState(false)
   const [tasks, setTasks] = useState([
     { urgent: false, task: 'select status to complete', status: 'incomplete' }
   ])
-
-  // useEffect(() => {}, [tasks])
-
   console.log(tasks)
-
   const addTask = () => {
     setAddTaskModal((addTaskModal) => !addTaskModal)
   }
